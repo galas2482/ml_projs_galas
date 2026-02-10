@@ -8,7 +8,7 @@ b2 = np.zeros((1, 1))
 actual_y = 42
 learning_rate = 0.00001
 
-for epoch in range(500):
+for runthrough in range(500):
     z1 = np.dot(W1, x) + b1 # this is if you took the 10 x 5 Weight matrix multiplied by the 5 x 1 input column vector
     a1 = np.maximum(0, z1) # ReLU activation function
     prediction = np.dot(W2, a1) + b2
@@ -27,5 +27,5 @@ for epoch in range(500):
     b1 -= learning_rate * delta_hidden
     b2 -= learning_rate * error 
 
-    if epoch % 10 == 0:
+    if runthrough % 10 == 0:
        print(f"Runthrough {epoch}: Prediction: was {prediction[0][0]:.2f} | The Actual was: {actual_y:.2f} | So the model was {error[0][0]} off")
